@@ -1,20 +1,22 @@
 const menu = document.getElementById("menu")
 const cartBtn =document.getElementById("cart-btn")
 const cartModal = document.getElementById("cart-modal")
-const cartIntemsComtainer = document.getElementById("cart-items")
+const cartItemsContainer = document.getElementById("cart-items")
 const cartTotal = document.getElementById("cart-total")
 const checkoutBtn =document.getElementById("checkout-btn")
-const closeModalBtn = document.getElementById("close-model-btn")
+const closeModalBtn = document.getElementById("close-modal-btn")
 const cartCounter = document.getElementById("cart-count")
 const addressInput = document.getElementById("address")
 const addresswarn = document.getElementById("address-warn")
 
 
-let cart =[];
+let cart = [];
 
 //ABRIR O MODAL DO CARRINHO
 cartBtn.addEventListener('click', function(){
+    
     cartModal.style.display ='flex'
+    
 })
 
 //FECHAR O MODAL DO CARRINHO
@@ -32,11 +34,11 @@ closeModalBtn.addEventListener('click', function(){
 menu.addEventListener("click", function(event){
 
 
-    let parentbutton = event.target.closest(".add-to-cart-btn")
+    let parentButton = event.target.closest(".add-to-cart-btn")
 
-    if(parentbutton){
-        const name = parentbutton.getAttribute("data-name") 
-        const price = parseFloat(parentbutton.getAttribute("data-price"))
+    if(parentButton){
+        const name = parentButton.getAttribute("data-name") 
+        const price = parseFloat(parentButton.getAttribute("data-price"))
         addTocart(name, price)
     }
 })
@@ -60,12 +62,12 @@ function addTocart(name,price){
     
     }
     
-    updateCartModel()
+    updateCartModal()
 }
 
 
-function updateCartModel(){
-    cartIntemsComtainer.innerHTML ="";
+function updateCartModal(){
+    cartItemsContainer.innerHTML ="";
     let total =0;
 
     cart.forEach(item => {
@@ -85,7 +87,7 @@ function updateCartModel(){
             </div>
          </div>
         `
-        cartIntemsComtainer.appendChild(cartItemElemente)
+        cartItemsContainer.appendChild(cartItemElemente)
         
     })
 }
