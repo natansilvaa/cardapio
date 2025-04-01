@@ -78,7 +78,7 @@ function updateCartModal(){
          <div class="flex items-center justify-between">
             <div>
                 <p class="font-medium">${item.name}</p>
-                <p>quantidad: ${item.quantity}</p>
+                <p>quantidade: ${item.quantity}</p>
                 <p class="font-medium mt-2"> R$ ${item.price.toFixed(2)}</p>
             </div>
             <div>
@@ -92,7 +92,7 @@ function updateCartModal(){
         total += item.price * item.quantity;
 
         cartItemsContainer.appendChild(cartItemElemente)
-        
+       
     })
 
     cartTotal.textContent = total.toLocaleString("pt-BR", {
@@ -144,7 +144,7 @@ addressInput.addEventListener("input", function(event){
 checkoutBtn.addEventListener("click", function(){
     if(cart.length === 0) return;
     if(addressInput.value === ""){
-        addresswarn.classList.remove(" hidden")
+        addresswarn.classList.remove("hidden")
         addressInput.classList.add("border-red-500")
         return;
     }
