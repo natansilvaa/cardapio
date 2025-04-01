@@ -142,6 +142,9 @@ addressInput.addEventListener("input", function(event){
 })
 
 checkoutBtn.addEventListener("click", function(){
+
+    const isOpen = checkRestaurantOpen();
+
     if(cart.length === 0) return;
     if(addressInput.value === ""){
         addresswarn.classList.remove("hidden")
@@ -149,3 +152,24 @@ checkoutBtn.addEventListener("click", function(){
         return;
     }
 })
+
+//VERIFICAR A DATA E MANIPULAR O CARD HORÁRIO
+
+function checkRestaurantOpen(){
+    const date = new date();
+    const hora = date.getHours();
+    return hora >= 18 && hora < 11;
+    //restaurante aberto
+}
+
+
+const spanItem = document.getElementById("date-span")
+const isOpen = checkRestaurantOpen();
+
+if(isOpen){
+    spanItem.classList.remove("bg-red-500");
+    spanItem.classList.add("bg-green-600")
+}else{
+    spanItem.classList.remove("bg-green-600")
+    spanItem.classList.add("bg-red-500");
+}
