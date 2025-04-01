@@ -14,7 +14,7 @@ let cart = [];
 
 //ABRIR O MODAL DO CARRINHO
 cartBtn.addEventListener('click', function(){
-    
+    updateCartModal();
     cartModal.style.display ='flex'
     
 })
@@ -72,13 +72,14 @@ function updateCartModal(){
 
     cart.forEach(item => {
         const cartItemElemente = document.createElement("div");
+        cartItemElemente.classList.add("flex", "justify-between","mb-4", "flex-col")
 
         cartItemElemente.innerHTML=`
-         <div>
+         <div class="flex items-center justify-between">
             <div>
-                <p>${item.name}</p>
-                <p>${item.quantity}</p>
-                <p> R$ ${item.price}</p>
+                <p class="font-medium">${item.name}</p>
+                <p>quantidad: ${item.quantity}</p>
+                <p class="font-medium mt-2"> R$ ${item.price.toFixed(2)}</p>
             </div>
             <div>
                 <button>
@@ -87,7 +88,21 @@ function updateCartModal(){
             </div>
          </div>
         `
+
+        total += item.price * item.quantity;
+
         cartItemsContainer.appendChild(cartItemElemente)
         
     })
+
+    cartTotal.textContent = total.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+    });
+
+    cartCounter.innerHTML = cart.length;
+
+
+
+
 }
