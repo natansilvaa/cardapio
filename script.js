@@ -82,7 +82,7 @@ function updateCartModal(){
                 <p class="font-medium mt-2"> R$ ${item.price.toFixed(2)}</p>
             </div>
             <div>
-                <button>
+                <button class="remove-from-cart-btn" data-name="${item.name}">
                     Remover
                 </button>
             </div>
@@ -102,7 +102,50 @@ function updateCartModal(){
 
     cartCounter.innerHTML = cart.length;
 
-
-
-
 }
+
+
+//FUNÇAO DE REMOVER
+
+cartItemsContainer.addEventListener("click", function(event){
+    if(event.target.classList.contains("remove-from-cart-btn")){
+        const name = event.target.getAttribute("data-name")
+
+        removeItemCart(name);
+    }
+})
+
+function removeItemCart(name){
+    const index = cart.findIndex(item => item.name === name);
+
+    if(index !== -1){
+        const item = cart[index];
+
+        if(item.quantity > 1){
+            item.quantity -= 1;
+            updateCartModal();
+            return;
+        }
+
+        cart.splice(index, 1);
+        updateCartModal();
+    }
+}
+
+addressInput.addEventListener("input", function(event){
+    let inputValue = event.target.value;
+
+    if(inputValue !== ""){
+        addressInput.classList.remove("border-red-500")
+        addresswarn.classList.add("hidden")
+    }
+})
+
+checkoutBtn.addEventListener("click", function(){
+    if(cart.length === 0) return;
+    if(addressInput.value === ""){
+        addresswarn.classList.remove(" hidden")
+        addressInput.classList.add("border-red-500")
+        return;
+    }
+})
