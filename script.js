@@ -144,6 +144,10 @@ addressInput.addEventListener("input", function(event){
 checkoutBtn.addEventListener("click", function(){
 
     const isOpen = checkRestaurantOpen();
+    if(!isOpen){
+       alert("RESTAURANTE FECHADO NO MOMENTO!!!")
+        return;
+    }
 
     if(cart.length === 0) return;
     if(addressInput.value === ""){
@@ -151,14 +155,30 @@ checkoutBtn.addEventListener("click", function(){
         addressInput.classList.add("border-red-500")
         return;
     }
+
+    //ENVIAR PEDIDO PARA O WHATS
+
+    const cartItems = cart.map((item) => {
+        return (
+            ` ${item.name} Quantidade: (${item.quantity}) Preço: R$${item.price} |`
+        )
+    }).join("")
+
+    const message = encodeURIComponent(cartItems)
+    const phone = "92985228991"
+
+    window.open(`http://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}`, "_blank")
+
+    cart =[]
+    updateCartModal();
 })
 
 //VERIFICAR A DATA E MANIPULAR O CARD HORÁRIO
 
 function checkRestaurantOpen(){
-    const date = new date();
+    const date = new Date();
     const hora = date.getHours();
-    return hora >= 18 && hora < 11;
+    return hora >= 18 && hora < 22;
     //restaurante aberto
 }
 
