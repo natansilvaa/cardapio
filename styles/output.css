@@ -2713,7 +2713,7 @@ video {
   forced-color-adjust: none;
 }
 
-head{
+head, html{
   scroll-behavior: smooth;
 }
 
