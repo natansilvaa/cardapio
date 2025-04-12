@@ -171,8 +171,26 @@ checkoutBtn.addEventListener("click", function(){
     //ENVIAR PEDIDO PARA O WHATS
 
     const cartItems = cart.map((item) => {
+        return `• ${item.name}\n  Quantidade: ${item.quantity}\n  Preço: R$ ${item.price.toFixed(2)}\n`
+    }).join("\n");
+    
+    const address = addressInput.value;
+    
+    const message = encodeURIComponent(
+        `🛒 *Pedido:*\n\n${cartItems}\n📍 *Endereço:* ${address}`
+    );
+    
+    const phone = "92985228991";
+    
+    window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+    
+    cart = [];
+    updateCartModal();
+    
+
+   /* const cartItems = cart.map((item) => {
         return (
-            ` ${item.name} Quantidade: (${item.quantity}) Preço: R$${item.price} |`
+            ` ${item.name} Quantidade: (${item.quantity}) Preço: R$${item.price.toFixed(2)}\n `
         )
     }).join("")
 
@@ -183,6 +201,7 @@ checkoutBtn.addEventListener("click", function(){
 
     cart =[]
     updateCartModal();
+*/
 })
 
 //VERIFICAR A DATA E MANIPULAR O CARD HORÁRIO
