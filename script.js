@@ -169,7 +169,7 @@ checkoutBtn.addEventListener("click", function(){
     }
 
     //ENVIAR PEDIDO PARA O WHATS
-
+/*
     const cartItems = cart.map((item) => {
         return `• ${item.name}\n  Quantidade: ${item.quantity}\n  Preço: R$ ${item.price.toFixed(2)}\n`
     }).join("\n");
@@ -186,9 +186,9 @@ checkoutBtn.addEventListener("click", function(){
     
     cart = [];
     updateCartModal();
-    
+    */
 
-   /* const cartItems = cart.map((item) => {
+    const cartItems = cart.map((item) => {
         return (
             ` ${item.name} Quantidade: (${item.quantity}) Preço: R$${item.price.toFixed(2)}\n `
         )
@@ -201,7 +201,7 @@ checkoutBtn.addEventListener("click", function(){
 
     cart =[]
     updateCartModal();
-*/
+
 })
 
 //VERIFICAR A DATA E MANIPULAR O CARD HORÁRIO
