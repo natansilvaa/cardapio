@@ -65,6 +65,34 @@ function addTocart(name,price){
     updateCartModal()
 }
 
+function addTocart(name, price) {
+    const existingItem = cart.find(item => item.name === name);
+
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({
+            name,
+            price,
+            quantity: 1,
+        });
+    }
+
+    updateCartModal();
+
+    // ✅ Mostrar toast de item adicionado
+    Toastify({
+        text: `${name} adicionado ao carrinho!`,
+        duration: 3000,
+        close: true,
+        gravity: "top",
+        position: "right",
+        stopOnFocus: true,
+        style: {
+            background: "#22c55e", // verde
+        },
+    }).showToast();
+}
 
 function updateCartModal(){
     cartItemsContainer.innerHTML ="";
