@@ -174,10 +174,12 @@ checkoutBtn.addEventListener("click", function(){
         return `• ${item.name}\n  Quantidade: ${item.quantity}\n  Preço: R$ ${item.price.toFixed(2)}\n`
     }).join("\n");
     
+    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    
     const address = addressInput.value;
     
     const message = encodeURIComponent(
-        `🛒 *Pedido:*\n\n${cartItems}\n📍 *Endereço:* ${address}`
+        `🛒 *Pedido:*\n\n${cartItems}\n💰 *Total:* R$ ${total.toFixed(2)}\n📍 *Endereço:* ${address}`
     );
     
     const phone = "92985228991";
