@@ -83,7 +83,7 @@ function addTocart(name, price) {
     // ✅ Mostrar toast de item adicionado
     Toastify({
         text: `${name} adicionado ao carrinho!`,
-        duration: 3000,
+        duration: 1500,
         close: true,
         gravity: "top",
         position: "right",
