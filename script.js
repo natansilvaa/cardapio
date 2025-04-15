@@ -39,6 +39,8 @@ menu.addEventListener("click", function(event){
     if(parentButton){
         const name = parentButton.getAttribute("data-name") 
         const price = parseFloat(parentButton.getAttribute("data-price"))
+
+
         addTocart(name, price)
     }
 })
