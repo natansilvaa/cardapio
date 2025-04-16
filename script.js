@@ -48,7 +48,6 @@ menu.addEventListener("click", function(event){
 
 
 
-
 //FUNÇÃO PARA ADD NO CARRINHO
 function addTocart(name,price){
     const existingItem = cart.find(item => item.name === name)
