@@ -930,6 +930,14 @@ video {
   width: 100%;
 }
 
+.w-80 {
+  width: 20rem;
+}
+
+.w-96 {
+  width: 24rem;
+}
+
 .min-w-\[90\%\] {
   min-width: 90%;
 }
@@ -2817,6 +2825,10 @@ head, html{
 
   .md\:gap-10 {
     gap: 2.5rem;
+  }
+
+  .md\:gap-16 {
+    gap: 4rem;
   }
 
   .md\:text-3xl {
