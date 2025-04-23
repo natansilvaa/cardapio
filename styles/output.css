@@ -914,6 +914,10 @@ video {
   width: 8rem;
 }
 
+.w-96 {
+  width: 24rem;
+}
+
 .w-\[this-is\\\\\] {
   width: this-is\\;
 }
@@ -928,14 +932,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.w-80 {
-  width: 20rem;
-}
-
-.w-96 {
-  width: 24rem;
 }
 
 .min-w-\[90\%\] {
@@ -1139,6 +1135,15 @@ video {
 
 .snap-always {
   scroll-snap-stop: always;
+}
+
+.scroll-m-0 {
+  scroll-margin: 0px;
+}
+
+.scroll-mx-96 {
+  scroll-margin-left: 24rem;
+  scroll-margin-right: 24rem;
 }
 
 .list-inside {
@@ -2825,10 +2830,6 @@ head, html{
 
   .md\:gap-10 {
     gap: 2.5rem;
-  }
-
-  .md\:gap-16 {
-    gap: 4rem;
   }
 
   .md\:text-3xl {
