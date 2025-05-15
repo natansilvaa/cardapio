@@ -90,7 +90,7 @@ function addTocart(name, price) {
         position: "right",
         stopOnFocus: true,
         style: {
-            background: "#22c55e", // verde
+        background: "#22c55e", // verde
         },
     }).showToast();
 }
